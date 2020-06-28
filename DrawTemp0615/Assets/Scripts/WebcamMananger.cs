@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class WebcamMananger : MonoBehaviour
 {
     WebCamDevice[] webdevices;
+    public WebCamDevice PubWebcam;
+    public WebCamTexture PubTexture;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class WebcamMananger : MonoBehaviour
 
             if (webdevices[i].isFrontFacing)
             {
+                PubWebcam = webdevices[i];
                 SetWebCamTexture(i);
                 return;
             }
@@ -31,6 +34,8 @@ public class WebcamMananger : MonoBehaviour
             RawImage showImage = GetComponent<RawImage>();
             showImage.texture = webcamTexture;
             webcamTexture.Play();
+            PubTexture = webcamTexture;
+            PubTexture.isReadable = true;
             //다른 카메라 앱을 실행하는 도중에 연결하면 안됨
         }
         else
