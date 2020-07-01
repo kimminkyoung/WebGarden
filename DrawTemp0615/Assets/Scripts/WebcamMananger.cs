@@ -35,7 +35,6 @@ public class WebcamMananger : MonoBehaviour
             showImage.texture = webcamTexture;
             webcamTexture.Play();
             PubTexture = webcamTexture;
-            PubTexture.isReadable = true;
             //다른 카메라 앱을 실행하는 도중에 연결하면 안됨
         }
         else
