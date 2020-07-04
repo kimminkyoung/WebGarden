@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WebCam.unity
     guid: 25a193a89d085c9438d13bd4283b0861
+  - enabled: 0
+    path: Assets/Scenes/Forest.unity
+    guid: 7929b39c2430f4b4b96791dbd790bcbd
   m_configObjects: {}

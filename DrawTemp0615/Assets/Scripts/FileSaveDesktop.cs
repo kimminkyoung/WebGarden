@@ -11,10 +11,11 @@ public class FileSaveDesktop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
         //File.Create(DesktopPath + "/tempFile.png");
         byte[] bytes = SourceImage.EncodeToPNG();
-        File.WriteAllBytes(DesktopPath + "/SourceImage.png", bytes);
+        File.WriteAllBytes(DesktopPath + "/SourceImage.png", bytes);*/
     }
 
     // Update is called once per frame
@@ -22,8 +23,16 @@ public class FileSaveDesktop : MonoBehaviour
     {
         
     }
+    private void OnMouseDown()
+    {
+        print("클릭");
+        DesktopSave();
+    }
     void DesktopSave()
     {
-        //여기로 옮겨서 실행
+        DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+        //File.Create(DesktopPath + "/tempFile.png");
+        byte[] bytes = SourceImage.EncodeToPNG();
+        File.WriteAllBytes(DesktopPath + "/SourceImage.png", bytes);
     }
 }
