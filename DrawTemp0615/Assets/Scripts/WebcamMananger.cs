@@ -36,6 +36,29 @@ public class WebcamMananger : MonoBehaviour
             print("webcam is usable now");
         else
             print("cannot use webcam");
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            webdevices = WebCamTexture.devices;
+            for (int i = 0; i < webdevices.Length; i++)
+            {
+                //사용가능한 웹캠 확인
+                print("available webcam : " + webdevices[i].name + ", num is " + i + ", is front facing? : " + webdevices[i].isFrontFacing);
+
+                if (webdevices[i].isFrontFacing)
+                {
+                    PubWebcam = webdevices[i];
+                    SetWebCamTexture(i);
+                    return;
+                }
+            }
+        }
     }
 
     void SetWebCamTexture(int WebcamNum)
@@ -55,26 +78,5 @@ public class WebcamMananger : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            webdevices = WebCamTexture.devices;
-            for (int i = 0; i < webdevices.Length; i++)
-            {
-                //사용가능한 웹캠 확인
-                print("available webcam : " + webdevices[i].name + ", num is " + i +
-                    ", is front facing? : " + webdevices[i].isFrontFacing);
-
-                if (webdevices[i].isFrontFacing)
-                {
-                    PubWebcam = webdevices[i];
-                    SetWebCamTexture(i);
-                    return;
-                }
-            }
-        }
-    }
 
 }

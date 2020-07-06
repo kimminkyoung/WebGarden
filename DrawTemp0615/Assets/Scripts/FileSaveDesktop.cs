@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 
 public class FileSaveDesktop : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class FileSaveDesktop : MonoBehaviour
     private void OnMouseDown()
     {
         print("클릭");
-        DesktopSave();
+        FileDownloadViaJava();
+        //DesktopSave();
     }
     void DesktopSave()
     {
@@ -35,4 +37,33 @@ public class FileSaveDesktop : MonoBehaviour
         byte[] bytes = SourceImage.EncodeToPNG();
         File.WriteAllBytes(DesktopPath + "/SourceImage.png", bytes);
     }
+
+    [DllImport("__Internal")]
+    private static extern void DownloadFile(byte[] array, int byteLength, string fileName);
+
+
+    [DllImport("__Internal")]
+    private static extern void Hello();
+
+    void FileDownloadViaJava()
+    {
+        print("jabaTest");
+        Hello();
+
+        //print("open url");
+        //Application.OpenURL("http://kming.creatorlink.net/");
+
+        print("file download");
+        Texture2D texture = SourceImage;
+        byte[] textureBytes = texture.EncodeToJPG();
+        DownloadFile(textureBytes, textureBytes.Length, "image.jpg");
+        Destroy(texture);
+    }
+
+    /*
+    void FileDownload()
+    {
+        System.Net.WebClient client = new System.Net.WebClient();
+        client.DownloadDataAsync(new System.Uri(), "")
+    }*/
 }
