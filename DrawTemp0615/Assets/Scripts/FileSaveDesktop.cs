@@ -47,23 +47,16 @@ public class FileSaveDesktop : MonoBehaviour
 
     void FileDownloadViaJava()
     {
+        
         print("jabaTest");
         Hello();
+        //just Test
 
-        //print("open url");
-        //Application.OpenURL("http://kming.creatorlink.net/");
-
-        print("file download");
-        Texture2D texture = SourceImage;
-        byte[] textureBytes = texture.EncodeToJPG();
-        DownloadFile(textureBytes, textureBytes.Length, "image.jpg");
-        Destroy(texture);
+        //print("file download");
+        //Texture2D texture = SourceImage;
+        //byte[] textureBytes = texture.EncodeToJPG();
+        //DownloadFile(textureBytes, textureBytes.Length, "image.jpg");
+        //Destroy(texture);
     }
 
-    /*
-    void FileDownload()
-    {
-        System.Net.WebClient client = new System.Net.WebClient();
-        client.DownloadDataAsync(new System.Uri(), "")
-    }*/
 }
