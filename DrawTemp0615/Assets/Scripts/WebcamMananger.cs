@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class WebcamMananger : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class WebcamMananger : MonoBehaviour
         }
     }*/
 
+    [DllImport("__internal")]
+    private static extern void WebcamAllow();
+
     IEnumerator Start()
     {
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
@@ -36,6 +40,9 @@ public class WebcamMananger : MonoBehaviour
             print("webcam is usable now");
         else
             print("cannot use webcam");
+
+        print("plugin use");
+        WebcamAllow();
 
     }
 
