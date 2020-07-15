@@ -30,7 +30,7 @@ public class WebcamMananger : MonoBehaviour
         }
     }*/
 
-    [DllImport("__internal")]
+    [DllImport("__Internal")]
     private static extern void WebcamAllow();
 
     IEnumerator Start()
@@ -40,10 +40,6 @@ public class WebcamMananger : MonoBehaviour
             print("webcam is usable now");
         else
             print("cannot use webcam");
-
-        print("plugin use");
-        WebcamAllow();
-
     }
 
 
@@ -52,6 +48,10 @@ public class WebcamMananger : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
+
+            //print("plugin use");
+            //WebcamAllow();
+
             webdevices = WebCamTexture.devices;
             for (int i = 0; i < webdevices.Length; i++)
             {

@@ -3,7 +3,8 @@
 mergeInto(LibraryManager.library, {
 
  WebcamAllow: function(){
-    navigator.MediaDevices.getUserMedia();
+    window.alert("not supported");
+
  }
 
 
