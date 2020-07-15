@@ -49,8 +49,8 @@ public class WebcamMananger : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
 
-            //print("plugin use");
-            //WebcamAllow();
+            print("plugin use");
+            WebcamAllow();
 
             webdevices = WebCamTexture.devices;
             for (int i = 0; i < webdevices.Length; i++)
